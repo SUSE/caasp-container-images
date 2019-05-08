@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-AddTag: caasp/v4/etcd:%%PKG_VERSION%%-rev<VERSION> caasp/v4/etcd:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/etcd:beta -->
+
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.9" name="caasp-etcd-image">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>etcd running on a SLES15 SP1 container guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="obsrepositories:/suse/sle15#15.1">
+      <containerconfig
+        name="caasp/v4/etcd"
+        tag="%%PKG_VERSION%%"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <expose>
+          <port number="2379"/>
+          <port number="2380"/>
+          <port number="4001"/>
+          <port number="7001"/>
+        </expose>
+        <entrypoint execute="bash">
+            <argument name="/usr/local/bin/entrypoint.sh"/>
+        </entrypoint>
+        <subcommand clear="true"/>
+        <labels>
+          <label name="com.suse.caasp.v4.description" value="etcd running on a SLES15 SP1 container guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/etcd:%%PKG_VERSION%%"/>
+          <label name="com.suse.caasp.v4.title" value="CaaSP etcd container"/>
+          <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="etcd"/>
+    <package name="etcdctl"/>
+  </packages>
+</image>

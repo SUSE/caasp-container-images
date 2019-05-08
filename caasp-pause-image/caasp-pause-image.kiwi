@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    The pause image is tagged with a hardcoded value of 3.1 according kubeadm
+    requirements.
+-->
+
+<!-- OBS-AddTag: caasp/v4/pause:3.1-rev<VERSION> caasp/v4/pause:3.1-rev<VERSION>-build<RELEASE> caasp/v4/pause:beta -->
+
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.9" name="caasp-pause-image">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>caasp-pause running on a SLES15 SP1 container guest</specification>
+  </description>
+  <preferences>
+    <type image="docker">
+      <containerconfig
+        name="caasp/v4/pause"
+        tag="3.1"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <entrypoint execute="/usr/bin/caasp-pause"/>
+        <labels>
+          <label name="com.suse.caasp.v4.description" value="caasp-pause running on a SLES15 SP1 container guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/pause:3.1"/>
+          <label name="com.suse.caasp.v4.title" value="CaaSP pause container"/>
+          <label name="com.suse.caasp.v4.version" value="3.1"/>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="bootstrap">
+    <package name="caasp-pause"/>
+  </packages>
+</image>

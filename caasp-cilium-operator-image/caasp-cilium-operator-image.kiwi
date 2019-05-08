@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-AddTag: caasp/v4/cilium-operator:%%PKG_VERSION%%-rev<VERSION> caasp/v4/cilium-operator:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/cilium-operator:beta -->
+
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.9" name="caasp-cilium-operator-image" xmlns:suse_label_helper="com.suse.label_helper">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>cilium-operator running on an SLES15 SP1 container guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="obsrepositories:/suse/sle15#15.1">
+      <containerconfig
+        name="caasp/v4/cilium-operator"
+        tag="%%PKG_VERSION%%"
+	    maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <entrypoint execute="/usr/bin/cilium-operator"/>
+        <subcommand clear="true"/>
+        <history author="Nirmoy Das &lt;ndas@suse.de&gt;">cilium-operator Container</history>
+        <labels>
+          <label name="com.suse.caasp.v4.description" value="Cilium operator running on an SLES15 SP1 container guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/cilium:%%PKG_VERSION%%"/>
+          <label name="com.suse.caasp.v4.title" value="Cilium operator container"/>
+          <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="cilium-operator"/>
+  </packages>
+</image>
