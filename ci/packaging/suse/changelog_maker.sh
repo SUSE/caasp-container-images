@@ -30,20 +30,21 @@ fi
 
 mapfile -t cmts < <( git log --no-merges -G"${img_ver_regex}" --format=%h \
     "${image}" | sort -r | head -n2 )
-version=$(git show "${cmts[0]}" ${image} | grep "</version>" |\
-    egrep -o "${ver_regex}")
-scope="${cmts[1]}..${cmts[0]}"
+version=$(git show "${cmts[1]-${cmts[0]}}" -- "${image}" | grep "^+.*</version>" |\
+    grep -Eo "${ver_regex}")
+scope="${cmts[0]}..${cmts[1]}"
 
 [ -z "${version}" ] && abort "No image version found"
 
 {
     if [ -z "${cmts[1]}" ]; then
         git show --format="${header}%n%n- Initial release of version ${version}" \
-		    --date="format-local:${datef}" -s "${cmts[0]}"
+            --date="format-local:${datef}" -s "${cmts[0]}"
     else
-	    git show --format="${header}%n%n- Update to version ${version}:" \
-		    --date="format-local:${datef}" -s "${cmts[0]}"
-	    git log -s --format="%w(77,2,10)* %h %s" --no-merges "${scope}"
+        git show --format="${header}%n%n- Update to version ${version}:" \
+            --date="format-local:${datef}" -s "${cmts[1]}"
+        git log -s --format="%w(77,2,10)* %h %s" --no-merges "${scope}" \
+            "${image}"
 	fi
 	# Add empty line
 	echo
