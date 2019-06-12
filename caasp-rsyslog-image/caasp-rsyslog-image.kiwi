@@ -22,6 +22,7 @@
         <entrypoint execute="/sbin/rsyslogd">
           <argument name="-n"/>
         </entrypoint>
+        <subcommand clear="true"/>
         <labels>
           <label name="com.suse.caasp.v4.description" value="CaaSP rsyslog running on a SLES15 SP1 container guest"/>
           <label name="com.suse.caasp.v4.reference" value="caasp/v4/rsyslog:v%%PKG_VERSION%%"/>
