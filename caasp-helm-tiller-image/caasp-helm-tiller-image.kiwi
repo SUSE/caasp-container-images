@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-AddTag: caasp/v4/helm-tiller:%%PKG_VERSION%%-rev<VERSION> caasp/v4/helm-tiller:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/helm-tiller:beta -->
+
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.9" name="caasp-helm-tiller-image">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>Helm tiller running on an SLE12 docker guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="obsrepositories:/suse/sle15#15.1">
+      <containerconfig
+        name="caasp/v4/helm-tiller"
+        tag="%%PKG_VERSION%%"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
+        user="nobody">
+        <entrypoint execute="/usr/bin/tiller">
+          <argument name="-n"/>
+        </entrypoint>
+        <subcommand clear="true"/>
+        <labels>
+          <label name="com.suse.caasp.v4.description" value="Helm tiller running on an SLE12 docker guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/helm-tiller:%%PKG_VERSION%%"/>
+          <label name="com.suse.caasp.v4.title" value="CaaSP helm tiller container"/>
+          <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="helm"/>
+    <package name="system-user-nobody"/>
+  </packages>
+</image>
+
