@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-AddTag: caasp/v4/caasp-dex:%%PKG_VERSION%%-rev<VERSION> caasp/v4/caasp-dex:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/caasp-dex:beta -->
+
+<!--
+  PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.5" name="caasp-caasp-dex-image">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>Dex running on an SLE15 docker guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="obsrepositories:/suse/sle15#15.1">
+      <containerconfig
+        name="caasp/v4/caasp-dex"
+        tag="%%PKG_VERSION%%"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <entrypoint execute="/usr/bin/caasp-dex"/>
+        <subcommand execute="version"/>
+        <labels>
+          <label name="com.suse.caasp.v4.description"
+                 value="CaaSP caasp-dex running on a SLES15 SP1 container guest"/>
+          <label name="com.suse.caasp.v4.reference" 
+                 value="caasp/v4/caasp-dex:%%PKG_VERSION%%"/>
+          <label name="com.suse.caasp.v4.title" 
+                 value="CaaSP caasp-dex container"/>
+          <label name="com.suse.caasp.v4.version" 
+                 value="%%PKG_VERSION%%"/>
+        </labels>
+      </containerconfig> 
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-force>true</rpm-force>
+    <rpm-excludedocs>true</rpm-excludedocs>
+    <locale>en_US</locale>
+    <keytable>us.map.gz</keytable>
+    <hwclock>utc</hwclock>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="caasp-dex"/>
+  </packages> 
+</image>
