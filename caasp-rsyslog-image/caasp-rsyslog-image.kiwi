@@ -5,7 +5,7 @@
 <!--
     PLEASE, REMOVE BETA TAG ON RELEASE
 -->
-<image schemaversion="6.5" name="caasp-rsyslog-image">
+<image schemaversion="6.9" name="caasp-rsyslog-image">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
