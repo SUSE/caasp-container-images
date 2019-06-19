@@ -35,16 +35,12 @@
     </type>
     <version>1</version>
     <packagemanager>zypper</packagemanager>
-    <rpm-check-signatures>false</rpm-check-signatures>
     <rpm-force>true</rpm-force>
     <rpm-excludedocs>true</rpm-excludedocs>
     <locale>en_US</locale>
     <keytable>us.map.gz</keytable>
     <hwclock>utc</hwclock>
   </preferences>
-  <users>
-    <user home="/var/lib/nobody" name="nobody" groups="nogroup"/>
-  </users>
   <repository>
     <source path="obsrepositories:/"/>
   </repository>
