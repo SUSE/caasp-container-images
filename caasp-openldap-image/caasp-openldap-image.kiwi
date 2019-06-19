@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4/openldap:%%PKG_VERSION%%-rev<VERSION> caasp/v4/openldap:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/openldap:beta1 -->
+<!-- OBS-AddTag: caasp/v4/openldap:%%PKG_VERSION%%-rev<VERSION> caasp/v4/openldap:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/openldap:beta -->
 
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
 <image schemaversion="6.9" name="caasp-openldap-image">
   <description type="system">
     <author>SUSE Containers Team</author>
@@ -40,16 +43,8 @@
     </type>
     <version>1</version>
     <packagemanager>zypper</packagemanager>
-    <rpm-check-signatures>false</rpm-check-signatures>
-    <rpm-force>true</rpm-force>
     <rpm-excludedocs>true</rpm-excludedocs>
-    <locale>en_US</locale>
-    <keytable>us.map.gz</keytable>
-    <hwclock>utc</hwclock>
   </preferences>
-  <users>
-    <user home="/root" name="root" groups="root"/>
-  </users>
   <repository>
     <source path="obsrepositories:/"/>
   </repository>
