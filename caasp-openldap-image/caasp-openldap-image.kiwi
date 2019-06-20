@@ -27,7 +27,7 @@
           <volume name="/var/lib/ldap"/>
         </volumes>
         <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
-        <subcommand execute="/usr/lib/openldap/slapd">
+        <subcommand execute="/usr/sbin/slapd">
           <argument name="-f"/>
           <argument name="/etc/openldap/slapd.conf"/>
           <argument name="-d"/>
