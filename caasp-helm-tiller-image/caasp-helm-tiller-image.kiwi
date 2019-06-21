@@ -9,7 +9,7 @@
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
-    <specification>Helm tiller running on an SLE12 docker guest</specification>
+    <specification>Helm tiller running on an SLE15.1 docker guest</specification>
   </description>
   <preferences>
     <type
@@ -20,12 +20,10 @@
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
         user="nobody">
-        <entrypoint execute="/usr/bin/tiller">
-          <argument name="-n"/>
-        </entrypoint>
+        <entrypoint execute="/usr/bin/tiller"/>
         <subcommand clear="true"/>
         <labels>
-          <label name="com.suse.caasp.v4.description" value="Helm tiller running on an SLE12 docker guest"/>
+          <label name="com.suse.caasp.v4.description" value="Helm tiller running on an SLE15.1 docker guest"/>
           <label name="com.suse.caasp.v4.reference" value="caasp/v4/helm-tiller:%%PKG_VERSION%%"/>
           <label name="com.suse.caasp.v4.title" value="CaaSP helm tiller container"/>
           <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
@@ -44,4 +42,3 @@
     <package name="system-user-nobody"/>
   </packages>
 </image>
-
