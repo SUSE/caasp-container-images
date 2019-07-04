@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4/caaspctl-tooling:0.1.0-rev<VERSION> caasp/v4/caaspctl-tooling:0.1.0-rev<VERSION>-build<RELEASE> caasp/v4/caaspctl-tooling:beta -->
+<!-- OBS-AddTag: caasp/v4/skuba-tooling:0.1.0-rev<VERSION> caasp/v4/skuba-tooling:0.1.0-rev<VERSION>-build<RELEASE> caasp/v4/skuba-tooling:beta -->
 
 <!--
     PLEASE, REMOVE BETA TAG ON RELEASE
 -->
-<image schemaversion="6.9" name="caasp-caaspctl-tooling-image">
+<image schemaversion="6.9" name="caasp-skuba-tooling-image">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
-    <specification>caaspctl-tooling running on a SLES15 SP1 container guest</specification>
+    <specification>skuba-tooling running on a SLES15 SP1 container guest</specification>
   </description>
   <preferences>
     <type
       image="docker"
       derived_from="obsrepositories:/suse/sle15#15.1">
       <containerconfig
-        name="caasp/v4/caaspctl-tooling"
+        name="caasp/v4/skuba-tooling"
         tag="0.1.0"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <labels>
-          <label name="com.suse.caasp.v4.description" value="CaaSP caaspctl-tooling running on a SLES15 SP1 container guest"/>
-          <label name="com.suse.caasp.v4.reference" value="caasp/v4/caaspctl-tooling:0.1.0"/>
-          <label name="com.suse.caasp.v4.title" value="CaaSP caaspctl-tooling container"/>
+          <label name="com.suse.caasp.v4.description" value="CaaSP skuba-tooling running on a SLES15 SP1 container guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/skuba-tooling:0.1.0"/>
+          <label name="com.suse.caasp.v4.title" value="CaaSP skuba-tooling container"/>
           <label name="com.suse.caasp.v4.version" value="0.1.0"/>
         </labels>
       </containerconfig>
