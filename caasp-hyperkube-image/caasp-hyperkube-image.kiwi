@@ -39,5 +39,6 @@
     <package name="kubernetes-common"/>
     <package name="iptables"/>
     <package name="iproute2"/>
+    <package name="conntrack-tools"/>
   </packages>
 </image>
