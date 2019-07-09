@@ -46,5 +46,6 @@
   </repository>
   <packages type="image">
     <package name="caasp-dex"/>
+    <package name="caasp-dex-branding"/>
   </packages> 
 </image>
