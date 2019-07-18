@@ -42,7 +42,6 @@
   </repository>
   <packages type="image">
     <package name="389-ds"/>
-    <package name="openldap2-client"/>
     <package name="gawk"/>
   </packages>
 </image>
