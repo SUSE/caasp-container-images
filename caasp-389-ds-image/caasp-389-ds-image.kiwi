@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-AddTag: caasp/v4/389-ds:%%PKG_VERSION%%-rev<VERSION> caasp/v4/389-ds:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/389-ds:beta -->
+
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.9" name="caasp-389-ds-image">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>389 Directory Server running on a SLES15 SP1 container guest</specification>
+  </description>
+  <preferences>
+    <type image="docker" derived_from="obsrepositories:/suse/sle15#15.1">
+      <containerconfig
+        name="caasp/v4/389-ds"
+        tag="%%PKG_VERSION%%"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <labels>
+          <label name="com.suse.caasp.v4.description" value="CaaSP 389 Directory Server running on a SLES15 SP1 container guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/389-ds:%%PKG_VERSION%%"/>
+          <label name="com.suse.caasp.v4.title" value="CaaSP 389 Directory Server container"/>
+          <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
+        </labels>
+        <expose>
+          <port number="389"/>
+          <port number="636"/>
+        </expose>
+        <volumes>
+          <volume name="/data"/>
+        </volumes>
+        <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="389-ds"/>
+    <package name="gawk"/>
+  </packages>
+</image>
