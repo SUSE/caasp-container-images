@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- OBS-AddTag: caasp/v4/cloud-provider-openstack:%%PKG_VERSION%%-rev<VERSION> caasp/v4/cloud-provider-openstack:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/cloud-provider-openstack:beta -->
+
+<!--
+    PLEASE, REMOVE BETA TAG ON RELEASE
+-->
+<image schemaversion="6.9" name="caasp-csi-attacher">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>caasp-csi-attacher binary on SLES15 container guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="obsrepositories:/suse/sle15#15.1">
+      <containerconfig
+        name="caasp/v4/caasp-csi-attacher"
+        tag="%%PKG_VERSION%%"
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <entrypoint execute="/usr/bin/csi-attacher"/>
+        <subcommand clear="true"/>
+        <labels>
+          <label name="com.suse.caasp.v4.description" value="caasp-csi-attacher binary on SLES15 container guest"/>
+          <label name="com.suse.caasp.v4.reference" value="caasp/v4/caasp-csi-attacher:%%PKG_VERSION%%"/>
+          <label name="com.suse.caasp.v4.title" value="csi-attacher container"/>
+          <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="external-attacher"/>
+  </packages>
+</image>
