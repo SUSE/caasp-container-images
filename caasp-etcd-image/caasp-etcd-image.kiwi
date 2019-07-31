@@ -5,7 +5,7 @@
 <!--
     PLEASE, REMOVE BETA TAG ON RELEASE
 -->
-<image schemaversion="6.9" name="caasp-etcd-image">
+<image schemaversion="6.9" name="caasp-etcd-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
@@ -30,14 +30,20 @@
         </entrypoint>
         <subcommand clear="true"/>
         <labels>
-          <label name="com.suse.caasp.v4.description" value="etcd running on a SLES15 SP1 container guest"/>
-          <label name="com.suse.caasp.v4.reference" value="caasp/v4/etcd:%%PKG_VERSION%%"/>
-          <label name="com.suse.caasp.v4.title" value="CaaSP etcd container"/>
-          <label name="com.suse.caasp.v4.version" value="%%PKG_VERSION%%"/>
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
+            <label name="org.opencontainers.image.description" value="etcd running on a SLES15 SP1 container guest"/>
+            <label name="org.opencontainers.image.title" value="CaaSP etcd container"/>
+            <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
+            <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
+            <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
+            <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
+            <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/etcd:%%PKG_VERSION%%"/>
+          </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
     </type>
-    <version>1</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
