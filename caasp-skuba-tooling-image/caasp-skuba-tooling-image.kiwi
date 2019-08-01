@@ -5,7 +5,7 @@
 <!--
     PLEASE, REMOVE BETA TAG ON RELEASE
 -->
-<image schemaversion="6.9" name="caasp-skuba-tooling-image">
+<image schemaversion="6.9" name="caasp-skuba-tooling-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
@@ -20,14 +20,20 @@
         tag="0.1.0"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <labels>
-          <label name="com.suse.caasp.v4.description" value="CaaSP skuba-tooling running on a SLES15 SP1 container guest"/>
-          <label name="com.suse.caasp.v4.reference" value="caasp/v4/skuba-tooling:0.1.0"/>
-          <label name="com.suse.caasp.v4.title" value="CaaSP skuba-tooling container"/>
-          <label name="com.suse.caasp.v4.version" value="0.1.0"/>
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
+            <label name="org.opencontainers.image.description" value="CaaSP skuba-tooling running on a SLES15 SP1 container guest"/>
+            <label name="org.opencontainers.image.title" value="CaaSP skuba-tooling container"/>
+            <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
+            <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
+            <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
+            <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
+            <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/skuba-tooling:0.1.0"/>
+          </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
     </type>
-    <version>2</version>
+    <version>3</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
