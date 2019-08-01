@@ -1,8 +1,0 @@
-<services>
-    <service name="replace_using_package_version" mode="buildtime">
-        <param name="file">caasp-openldap-image.kiwi</param>
-        <param name="regex">%%PKG_VERSION%%</param>
-        <param name="parse-version">patch</param>
-        <param name="package">openldap2</param>
-    </service>
-</services>
