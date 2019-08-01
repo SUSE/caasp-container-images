@@ -5,4 +5,6 @@
         <param name="parse-version">patch</param>
         <param name="package">cilium-init</param>
     </service>
+    <service mode="buildtime" name="kiwi_metainfo_helper"/>
+    <service mode="buildtime" name="kiwi_label_helper"/>
 </services>
