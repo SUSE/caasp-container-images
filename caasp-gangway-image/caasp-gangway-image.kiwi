@@ -38,5 +38,6 @@
   </repository>
   <packages type="image">
     <package name="gangway"/>
+    <package name="caasp-dex-branding"/>
   </packages>
 </image>
