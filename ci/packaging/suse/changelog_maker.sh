@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 set -e
 
@@ -29,10 +29,10 @@ fi
 [ -f "${changes}" ] && rm "${changes}"
 
 mapfile -t cmts < <( git log --no-merges -G"${img_ver_regex}" --format=%h \
-    "${image}" | sort -r | head -n2 )
-version=$(git show "${cmts[1]-${cmts[0]}}" -- "${image}" | grep "^+.*</version>" |\
+    "${image}" | head -n2 )
+version=$(git show "${cmts[0]}" -- "${image}" | grep "^+.*</version>" |\
     grep -Eo "${ver_regex}")
-scope="${cmts[0]}..${cmts[1]}"
+scope="${cmts[1]}..${cmts[0]}"
 
 [ -z "${version}" ] && abort "No image version found"
 
@@ -42,7 +42,7 @@ scope="${cmts[0]}..${cmts[1]}"
             --date="format-local:${datef}" -s "${cmts[0]}"
     else
         git show --format="${header}%n%n- Update to version ${version}:" \
-            --date="format-local:${datef}" -s "${cmts[1]}"
+            --date="format-local:${datef}" -s "${cmts[0]}"
         git log -s --format="%w(77,2,10)* %h %s" --no-merges "${scope}" \
             "${image}"
 	fi
