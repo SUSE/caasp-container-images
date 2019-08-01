@@ -5,7 +5,7 @@
 <!--
   PLEASE, REMOVE BETA TAG ON RELEASE
 -->
-<image schemaversion="6.5" name="caasp-caasp-dex-image" xmlns:suse_label_helper="com.suse.label_helper">
+<image schemaversion="6.9" name="caasp-caasp-dex-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
@@ -35,13 +35,9 @@
         </labels>
       </containerconfig> 
     </type>
-    <version>3</version>
+    <version>4</version>
     <packagemanager>zypper</packagemanager>
-    <rpm-force>true</rpm-force>
     <rpm-excludedocs>true</rpm-excludedocs>
-    <locale>en_US</locale>
-    <keytable>us.map.gz</keytable>
-    <hwclock>utc</hwclock>
   </preferences>
   <repository>
     <source path="obsrepositories:/"/>
