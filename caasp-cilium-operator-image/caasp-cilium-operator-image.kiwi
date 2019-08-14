@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4/cilium-operator:%%PKG_VERSION%%-rev<VERSION> caasp/v4/cilium-operator:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4/cilium-operator:beta -->
+<!-- OBS-AddTag: caasp/v4/cilium-operator:%%PKG_VERSION%%-rev<VERSION> caasp/v4/cilium-operator:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> -->
 
-<!--
-    PLEASE, REMOVE BETA TAG ON RELEASE
--->
 <image schemaversion="6.9" name="caasp-cilium-operator-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
