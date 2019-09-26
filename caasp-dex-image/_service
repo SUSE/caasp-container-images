@@ -1,9 +1,9 @@
 <services>
     <service name="replace_using_package_version" mode="buildtime">
-        <param name="file">caasp-caasp-dex-image.kiwi</param>
+        <param name="file">caasp-dex-image.kiwi</param>
         <param name="regex">%%PKG_VERSION%%</param>
         <param name="parse-version">patch</param>
-        <param name="package">caasp-dex</param>
+        <param name="package">dex</param>
     </service>
     <service mode="buildtime" name="kiwi_metainfo_helper"/>
 	<service mode="buildtime" name="kiwi_label_helper"/>
