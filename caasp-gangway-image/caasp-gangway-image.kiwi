@@ -32,7 +32,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>3</version>
+    <version>4</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -41,6 +41,6 @@
   </repository>
   <packages type="image">
     <package name="gangway"/>
-    <package name="caasp-dex-branding"/>
+    <package name="caasp-gangway-branding"/>
   </packages>
 </image>
