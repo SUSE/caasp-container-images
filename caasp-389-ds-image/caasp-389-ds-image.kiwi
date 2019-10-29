@@ -23,20 +23,21 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-			<label name="com.suse.reference" value="registry.suse.com/caasp/v4/389-ds:%%PKG_VERSION%%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/389-ds:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
         <expose>
-          <port number="389"/>
+          <port number="3389"/>
           <port number="636"/>
         </expose>
         <volumes>
           <volume name="/data"/>
         </volumes>
         <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
+        <subcommand clear="true"/>
       </containerconfig>
     </type>
-    <version>4</version>
+    <version>5</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
