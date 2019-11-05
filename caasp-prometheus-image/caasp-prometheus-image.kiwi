@@ -43,6 +43,7 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
+    <package name="configmap-reload"/>
     <package name="golang-github-prometheus-prometheus"/>
     <package name="golang-github-prometheus-alertmanager"/>
     <package name="golang-github-prometheus-node_exporter"/>
