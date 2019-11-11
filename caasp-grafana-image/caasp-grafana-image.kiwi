@@ -17,9 +17,9 @@
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <expose>
-          <port number="9090/tcp"/>
+          <port number="3000/tcp"/>
         </expose>
-        <entrypoint execute="/bin/grafana"/>
+        <entrypoint execute="/usr/sbin/grafana-server"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
