@@ -20,7 +20,7 @@
           <port number="8080/tcp"/>
           <port number="8081/tcp"/>
         </expose>
-        <entrypoint execute="/usr/bin/kube-state-metrics --port=8080 --telemetry-port=8081"/>
+        <entrypoint execute="/usr/bin/kube-state-metrics">
           <argument name="--port=8080"/>
           <argument name="--telemetry-port=8081"/>
         </entrypoint>
