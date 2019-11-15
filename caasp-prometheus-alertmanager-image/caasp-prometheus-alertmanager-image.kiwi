@@ -19,7 +19,7 @@
         <expose>
           <port number="9090/tcp"/>
         </expose>
-        <entrypoint execute="/bin/prometheus-alertmanager"/>
+        <entrypoint execute="/usr/bin/prometheus-alertmanager"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
