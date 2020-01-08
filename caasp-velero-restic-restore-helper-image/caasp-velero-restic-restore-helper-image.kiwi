@@ -17,7 +17,7 @@
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
         user="nobody">
-        <entrypoint execute="/velero-restic-restore-helper"/>
+        <entrypoint execute="velero-restic-restore-helper"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
@@ -41,7 +41,7 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="velero-velero-restic-restore-helper"/>
+    <package name="velero-restic-restore-helper"/>
     <package name="system-user-nobody"/>
   </packages>
 </image>
