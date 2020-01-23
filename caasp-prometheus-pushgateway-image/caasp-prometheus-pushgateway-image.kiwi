@@ -19,7 +19,7 @@
         <expose>
           <port number="9091/tcp"/>
         </expose>
-        <entrypoint execute="/usr/bin/prometheus-pushgateway"/>
+        <entrypoint execute="/usr/bin/pushgateway"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
