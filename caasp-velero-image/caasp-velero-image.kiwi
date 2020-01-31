@@ -17,7 +17,7 @@
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
         user="nobody">
-		<entrypoint execute="/velero"/>
+        <entrypoint execute="velero"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">

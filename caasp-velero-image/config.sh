@@ -16,6 +16,6 @@ echo "Configure image: [$kiwi_iname]..."
 # velero/velero
 # same file structure
 #--------------------------------------
-cp /usr/bin/velero /velero
+ln -sf /usr/bin/velero /velero
 
 exit 0
