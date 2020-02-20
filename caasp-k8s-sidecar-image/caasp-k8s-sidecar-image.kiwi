@@ -18,7 +18,7 @@
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
         user="nobody">
         <entrypoint execute="/usr/bin/python3">
-          <argument name="/usr/local/bin/k8s-sidecar/sidecar/sidecar.py"/>
+          <argument name="/usr/share/k8s-sidecar/sidecar/sidecar.py"/>
         </entrypoint>
         <subcommand clear="true"/>
         <labels>
