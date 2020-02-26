@@ -16,9 +16,11 @@
         name="caasp/v4/k8s-sidecar"
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
-        user="nobody">
+        user="nobody"
+        workingdir="/usr/share/k8s-sidecar/sidecar">
         <entrypoint execute="/usr/bin/python3">
-          <argument name="/usr/share/k8s-sidecar/sidecar/sidecar.py"/>
+          <argument name="-u"/>
+          <argument name="sidecar.py"/>
         </entrypoint>
         <subcommand clear="true"/>
         <labels>
