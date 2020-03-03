@@ -41,7 +41,7 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="velero-restic-restore-helper"/>
+    <package name="velero"/>
     <package name="system-user-nobody"/>
   </packages>
 </image>
