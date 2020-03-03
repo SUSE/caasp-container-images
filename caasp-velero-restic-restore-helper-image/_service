@@ -3,7 +3,7 @@
         <param name="file">caasp-velero-restic-restore-helper-image.kiwi</param>
         <param name="regex">%%PKG_VERSION%%</param>
         <param name="parse-version">patch</param>
-        <param name="package">velero-restic-restore-helper</param>
+        <param name="package">velero</param>
     </service>
     <service mode="buildtime" name="kiwi_metainfo_helper"/>
     <service mode="buildtime" name="kiwi_label_helper"/>
