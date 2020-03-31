@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4/kured:%%PKG_VERSION%%-rev<VERSION> caasp/v4/kured:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> -->
+<!-- OBS-AddTag: caasp/v5/kured:%%PKG_VERSION%%-rev<VERSION> caasp/v5/kured:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> -->
 
 <image schemaversion="6.9" name="caasp-kured-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
@@ -11,15 +11,15 @@
   <preferences>
     <type
       image="docker"
-      derived_from="obsrepositories:/suse/sle15#15.1">
+      derived_from="obsrepositories:/suse/sle15#15.2">
       <containerconfig
-        name="caasp/v4/kured"
+        name="caasp/v5/kured"
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/kured"/>
         <subcommand clear="true"/>
         <labels>
-          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
             <label name="org.opencontainers.image.description" value="Image containing Kubernetes Reboot Daemon for CaaSP"/>
             <label name="org.opencontainers.image.title" value="CaaSP kured container"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
@@ -27,12 +27,12 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/kured:%%PKG_VERSION%%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/kured:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
     </type>
-    <version>4</version>
+    <version>1</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
