@@ -16,7 +16,8 @@
         name="caasp/v4/kube-apiserver"
         tag="v%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
-        <subcommand execute="/bin/sh"/>
+        <entrypoint execute="kube-apiserver"/>
+        <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
             <label name="org.opencontainers.image.description" value="CaaSP kube-apiserver running on a SLES15 SP1 container guest"/>
