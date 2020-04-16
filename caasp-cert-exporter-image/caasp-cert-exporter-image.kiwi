@@ -42,5 +42,6 @@
   </repository>
   <packages type="image">
     <package name="cert-exporter"/>
+    <package name="system-user-nobody"/>
   </packages>
 </image>
