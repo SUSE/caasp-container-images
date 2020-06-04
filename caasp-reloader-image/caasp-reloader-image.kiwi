@@ -15,7 +15,8 @@
       <containerconfig
         name="caasp/v5/reloader"
         tag="%%PKG_VERSION%%"
-        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
+        user="nobody">
         <entrypoint execute="/usr/bin/Reloader"/>
         <subcommand clear="true"/>
         <labels>
@@ -41,5 +42,6 @@
   </repository>
   <packages type="image">
     <package name="Reloader"/>
+    <package name="system-user-nobody"/>
   </packages>
 </image>
