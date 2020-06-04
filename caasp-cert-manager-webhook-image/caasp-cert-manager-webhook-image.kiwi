@@ -17,7 +17,7 @@
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
         user="nobody">
-		<entrypoint execute="/usr/bin/cert-manager-webhook"/>
+        <entrypoint execute="/usr/bin/cert-manager-webhook"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
@@ -41,7 +41,8 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-	<package name="cert-manager"/>
+    <package name="cert-manager"/>
     <package name="cert-manager-webhook"/>
+    <package name="system-user-nobody"/>
   </packages>
 </image>
