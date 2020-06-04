@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-    The pause image is tagged with a hardcoded value of 3.1 according kubeadm
+    The pause image is tagged with a hardcoded value of 3.2 according kubeadm
     requirements.
 -->
 
-<!-- OBS-AddTag: caasp/v5/pause:3.1-rev<VERSION> caasp/v5/pause:3.1-rev<VERSION>-build<RELEASE> -->
+
+<!-- OBS-AddTag: caasp/v4/pause:3.2-rev<VERSION> caasp/v4/pause:3.2-rev<VERSION>-build<RELEASE> -->
 
 <image schemaversion="6.9" name="caasp-pause-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
@@ -16,8 +17,8 @@
   <preferences>
     <type image="docker">
       <containerconfig
-        name="caasp/v5/pause"
-        tag="3.1"
+        name="caasp/v4/pause"
+        tag="3.2"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/caasp-pause"/>
         <labels>
@@ -27,9 +28,10 @@
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
             <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
-            <label name="org.opencontainers.image.version" value="3.1"/>
+            <label name="org.opencontainers.image.version" value="3.2"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/pause:3.1"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/pause:3.2"/>
+
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
