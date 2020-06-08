@@ -25,6 +25,9 @@
         <entrypoint execute="bash">
             <argument name="/usr/local/bin/entrypoint.sh"/>
         </entrypoint>
+        <environment>
+          <env name="ETCD_UNSUPPORTED_ARCH" value="arm64"/>
+        </environment>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
