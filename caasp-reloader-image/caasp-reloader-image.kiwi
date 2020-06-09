@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v5/reloader:%%PKG_VERSION%%-rev<VERSION> caasp/v5/reloader:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> -->
+<!-- OBS-AddTag: caasp/v5/reloader:%%PKG_VERSION%%-rev<VERSION> caasp/v5/reloader:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v5/reloader:beta -->
 
 <image schemaversion="6.9" name="caasp-reloader-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
