@@ -5,36 +5,36 @@
     requirements.
 -->
 
-<!-- OBS-AddTag: caasp/v4/pause:3.2-rev<VERSION> caasp/v4/pause:3.2-rev<VERSION>-build<RELEASE> -->
+<!-- OBS-AddTag: caasp/v5/pause:3.2-rev<VERSION> caasp/v5/pause:3.2-rev<VERSION>-build<RELEASE> caasp/v5/pause:beta -->
 
 <image schemaversion="6.9" name="caasp-pause-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
-    <specification>caasp-pause running on a SLES15 SP1 container guest</specification>
+    <specification>caasp-pause running on a SLES15 SP2 container guest</specification>
   </description>
   <preferences>
     <type image="docker">
       <containerconfig
-        name="caasp/v4/pause"
+        name="caasp/v5/pause"
         tag="3.2"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/caasp-pause"/>
         <labels>
-          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
-            <label name="org.opencontainers.image.description" value="caasp-pause running on a SLES15 SP1 container guest"/>
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
+            <label name="org.opencontainers.image.description" value="caasp-pause running on a SLES15 SP2 container guest"/>
             <label name="org.opencontainers.image.title" value="CaaSP pause container"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
             <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="3.2"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/pause:3.2"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/pause:3.2"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
     </type>
-    <version>4</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>

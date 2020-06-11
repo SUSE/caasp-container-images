@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4/configmap-reload:%%PKG_VERSION%%-rev<VERSION> caasp/v4/configmap-reload:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> -->
+<!-- OBS-AddTag: caasp/v5/configmap-reload:%%PKG_VERSION%%-rev<VERSION> caasp/v5/configmap-reload:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v5/configmap-reload:beta -->
 
 <image schemaversion="6.9" name="caasp-configmap-reload-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
-    <specification>Prometheus configmap-reload running on a SLES15 SP1 container guest</specification>
+    <specification>Prometheus configmap-reload running on a SLES15 SP2 container guest</specification>
   </description>
   <preferences>
     <type
       image="docker"
-      derived_from="obsrepositories:/suse/sle15#15.1">
+      derived_from="obsrepositories:/suse/sle15#15.2">
       <containerconfig
-        name="caasp/v4/configmap-reload"
+        name="caasp/v5/configmap-reload"
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/configmap-reload"/>
         <subcommand clear="true"/>
         <labels>
-          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4">
-            <label name="org.opencontainers.image.description" value="Prometheus configmap-reload running on a SLES15 SP1 container guest"/>
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
+            <label name="org.opencontainers.image.description" value="Prometheus configmap-reload running on a SLES15 SP2 container guest"/>
             <label name="org.opencontainers.image.title" value="CaaSP Prometheus configmap-reload container"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
             <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v4/configmap-reload:%%PKG_VERSION%%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/configmap-reload:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
