@@ -41,7 +41,7 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="helm"/>
+    <package name="helm2"/>
     <package name="system-user-nobody"/>
   </packages>
 </image>
