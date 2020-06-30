@@ -3,7 +3,7 @@
         <param name="file">caasp-kube-controller-manager-image.kiwi</param>
         <param name="regex">%%PKG_VERSION%%</param>
         <param name="parse-version">patch</param>
-        <param name="package">kubernetes-controller-manager</param>
+        <param name="package">kubernetes-1.18-controller-manager</param>
     </service>
     <service mode="buildtime" name="kiwi_metainfo_helper"/>
     <service mode="buildtime" name="kiwi_label_helper"/>
