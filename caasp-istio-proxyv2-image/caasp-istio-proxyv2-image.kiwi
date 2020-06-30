@@ -42,5 +42,6 @@
   <packages type="image">
     <package name="istio-pilot-agent"/>
     <package name="cilium-istio-proxy"/>
+    <package name="curl"/>
   </packages>
 </image>
