@@ -12,7 +12,7 @@ OLDIFS="$IFS"  # to restore normal behavior
 DIRIFS="/$IFS" # to split directory components
 
 entrypoint="./usr/local/bin/entrypoint.sh"
-if [ -f $entrypoint ]
+if [ -f "$entrypoint" ]
 then
     Debug "Setting recursive permissions on entrypoint '$entrypoint'"
     p=""
