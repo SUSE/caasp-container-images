@@ -32,7 +32,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>1</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -40,6 +40,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="kubernetes-scheduler"/>
+    <package name="kubernetes-1.18-scheduler"/>
   </packages>
 </image>
