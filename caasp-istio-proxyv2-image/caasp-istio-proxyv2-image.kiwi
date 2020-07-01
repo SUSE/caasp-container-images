@@ -11,7 +11,7 @@
   <preferences>
     <type
       image="docker"
-      derived_from="obsrepositories:/suse/sle15#15.2">
+	    derived_from="obsrepositories:/caasp/v5/istio-base:%%PKG_VERSION%%">
       <containerconfig
         name="caasp/v5/istio-proxyv2"
         tag="%%PKG_VERSION%%"
@@ -47,6 +47,5 @@
   <packages type="image">
     <package name="istio-pilot-agent"/>
     <package name="cilium-istio-proxy"/>
-    <package name="curl"/>
   </packages>
 </image>
