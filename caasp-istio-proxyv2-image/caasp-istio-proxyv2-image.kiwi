@@ -16,7 +16,7 @@
         name="caasp/v5/istio-proxyv2"
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
-        <entrypoint execute="/usr/bin/pilot-agent"/>
+        <entrypoint execute="/usr/local/bin/pilot-agent"/>
         <subcommand clear="true"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
