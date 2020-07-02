@@ -30,6 +30,11 @@
             <label name="com.suse.reference" value="registry.suse.com/caasp/v5/istio-proxyv2:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
+        <environment>
+          <env name="ISTIO_META_INTERCEPTION_MODE" value="TPROXY"/>
+          <env name="ISTIO_META_ISTIO_VERSION" value="%%PKG_VERSION%%"/>
+          <env name="ISTIO_META_ISTIO_PROXY_SHA" value="4230ec31b3944d220407d22729736a871bccf797"/>
+        </environment>	
       </containerconfig>
     </type>
     <version>5</version>
