@@ -32,7 +32,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>1</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -41,6 +41,6 @@
   </repository>
   <packages type="image">
     <package name="kucero"/>
-    <package name="kubernetes-client"/>
+    <package name="kubernetes-1.18-client"/>
   </packages>
 </image>
