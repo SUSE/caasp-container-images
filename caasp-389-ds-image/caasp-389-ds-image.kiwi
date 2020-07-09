@@ -28,7 +28,7 @@
         </labels>
         <expose>
           <port number="3389"/>
-          <port number="636"/>
+          <port number="3636"/>
         </expose>
         <volumes>
           <volume name="/data"/>

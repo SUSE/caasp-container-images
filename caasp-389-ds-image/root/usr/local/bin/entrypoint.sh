@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ROOT_DN="cn=Directory Manager"
 DS_DM_PASSWORD=${DS_DM_PASSWORD:-"$(echo @dmin\!2345 | base64)"} # Environment Variable
-DS_SUFFIX=${DS_SUFFIX:-"dc=example,dc=org"} # Environment Variable
-DOMAIN_SUFFIX=$(echo ${DS_SUFFIX} | tr '[:upper:]' '[:lower:]' | sed 's/ou=//g' | sed 's/dc=//g' |  sed 's/\,/\./g')
+DS_SUFFIX=${DS_SUFFIX:-"dc=example,dc=org"}                      # Environment Variable
+DOMAIN_SUFFIX=$(echo ${DS_SUFFIX} | tr '[:upper:]' '[:lower:]' | sed 's/ou=//g' | sed 's/dc=//g' | sed 's/\,/\./g')
 
 SELF_SIGNED_CA=Self-Signed-CA
 ROOT_CA=ca
@@ -27,38 +27,69 @@ if [ ! -e "/data/config/setup.inf" ]; then
 
     echo -e "\n>> Creating localhost configuration...\n"
     cat <<EOT >> /data/config/setup.inf
-[General]
-FullMachineName=localhost.${DOMAIN_SUFFIX}
-;SuiteSpotUserID=dirsrv
-;SuiteSpotGroup=dirsrv
-;Should not run as root
-SuiteSpotUserID=root
-;Should not run as root
-SuiteSpotGroup=root
-StrictHostCheck=false
+[general]
+config_version = 2
+;defaults = 999999999
+;full_machine_name = localhost.${DOMAIN_SUFFIX}
+selinux = False
+start = False
+strict_host_checking = False
+systemd = False
+start_server = False
+with_systemd = False
 
 [slapd]
-ServerPort=3389
-;SecurePort=3636
-ServerIdentifier=localhost
-Suffix=${DS_SUFFIX}
-RootDN=${ROOT_DN}
-RootDNPwd=${DS_DM_PASSWORD}
-ds_bename=userRoot
-SlapdConfigForMC=Yes
-UseExistingMC=0
-AddSampleEntries=No
-start_server=0
-with_systemd=0
-;self_sign_cert=True
+backup_dir = /data/bak
+;bin_dir = /usr/bin
+;cert_dir = /etc/dirsrv/slapd-localhost
+;config_dir = /etc/dirsrv/slapd-localhost
+;data_dir = /usr/share
+db_dir = /data/db
+;db_home_dir = /data/db
+;group = dirsrv
+;initconfig_dir = /etc/sysconfig
+inst_dir = /data
+instance_name = localhost
+ldif_dir = /data/ldif
+;lib_dir = /usr/lib64
+local_state_dir = /data
+lock_dir = /data/run/lock
+log_dir = /data/logs
+port = 3389
+;prefix = /usr
+root_dn = ${ROOT_DN}
+root_password = ${DS_DM_PASSWORD}
+run_dir = /data/run
+;sbin_dir = /usr/sbin
+;schema_dir = /etc/dirsrv/slapd-localhost/schema
+secure_port = 3636
+;self_sign_cert = True
+;self_sign_cert_valid_months = 24
+;sysconf_dir = /etc
+;tmp_dir = /tmp
+;Should not run as root
+user = root
+;Should not run as root
+group = root
+ldapi = /data/run/slapd.socket
+access_log = /data/logs/access
+error_log = /data/logs/error
+audit_log = /data/logs/audit
 
+[backend-userroot]
+;create_suffix_entry = True
+;require_index = False
+;sample_entries = No
+;sample_entries = Yes
+suffix = ${DS_SUFFIX}
 EOT
 
     echo -e "\n>> Linking Python3 to Python...\n"
     ln -s /usr/bin/python3 /usr/bin/python
 
     echo -e "\n>> Creating Directory from configuration...\n"
-    /usr/sbin/setup-ds.pl -d --silent --file=/data/config/setup.inf
+    sed -i "s/with_systemd.*/with_systemd = 0/" /usr/share/dirsrv/inf/defaults.inf
+    /usr/sbin/dscreate -v from-file /data/config/setup.inf
 
     sed -i "s#/var/lock/dirsrv/slapd-localhost#/data/run/lock#g" ${SLAP_DIR}/dse.ldif
     sed -i "s#/var/lib/dirsrv/slapd-localhost#/data#g" ${SLAP_DIR}/dse.ldif
@@ -68,12 +99,13 @@ EOT
     sed -i "s#/var/run/slapd-localhost.socket#/data/run/slapd-localhost.socket#g" ${SLAP_DIR}/dse.ldif
 
     mv ${SLAP_DIR}/* /data/config && rm -rf ${SLAP_DIR} || true
+    mv ${SSCA_DIR}/* /data/ssca && rm -rf ${SSCA_DIR} || true
     mv ${DB_DIR}/* /data/db && rm -rf ${DB_DIR} || true
     mv ${LOG_DIR}/* /data/logs && rm -rf ${LOG_DIR} || true
 
     echo -e "\n>> Creating config folders symbolic links to /data\n"
     ln -s /data/config ${SLAP_DIR} && \
-        ln -s /data/ssca ${SSCA_DIR}
+    ln -s /data/ssca ${SSCA_DIR}
 
     sed -i "/^nsslapd-defaultnamingcontext: .*$/a nsslapd-security: on" ${SLAP_DIR}/dse.ldif
 
@@ -96,51 +128,6 @@ nsSSLToken: internal (software)
 cn: RSA
 
 EOF
-
-    echo -e "\n>> Creating pwd, pin, noise in ${SSCA_DIR}...\n"
-    (ps -ef ; w ) | sha1sum | awk '{print $1}' > ${SSCA_DIR}/pwdfile.txt
-    echo 'Internal (Software) Token:'$(cat ${SSCA_DIR}/pwdfile.txt) > ${SSCA_DIR}/pin.txt
-    (w ; ps -ef ; date ) | sha1sum | awk '{print $1}' > ${SSCA_DIR}/noise.txt
-
-    echo -e "\n>> Creating ${SELF_SIGNED_CA} database in ${SSCA_DIR}...\n"
-    /usr/bin/certutil -N -d ${SSCA_DIR} -f ${SSCA_DIR}/pwdfile.txt
-
-    echo -e "\n>> Creating ${SELF_SIGNED_CA} certificate and add to ${SELF_SIGNED_CA} database in ${SSCA_DIR}...\n"
-    /usr/bin/certutil -S -n ${SELF_SIGNED_CA} -s CN=ssca.389ds.${DOMAIN_SUFFIX},O=SUSE,L=CaaS,ST=Test,C=DE -x -g 4096 -t CT,, -v 24 --keyUsage certSigning -d ${SSCA_DIR} -z ${SSCA_DIR}/noise.txt -f ${SSCA_DIR}/pwdfile.txt
-
-    echo -e "\n>> Creating RootCA in ${SSCA_DIR}...\n"
-    /usr/bin/certutil -L -n ${SELF_SIGNED_CA} -d ${SSCA_DIR} -a -o ${SSCA_DIR}/${ROOT_CA}.crt
-
-    echo -e "\n>> Creating ${SELF_SIGNED_CA} hash link in ${SSCA_DIR}...\n"
-    /usr/bin/c_rehash ${SSCA_DIR}
-
-
-    echo -e "\n>> Creating pwd, pin, noise in ${SLAP_DIR}...\n"
-    (ps -ef ; w ) | sha1sum | awk '{print $1}' > ${SLAP_DIR}/pwdfile.txt
-    echo 'Internal (Software) Token:'$(cat ${SLAP_DIR}/pwdfile.txt) > ${SLAP_DIR}/pin.txt
-    (w ; ps -ef ; date ) | sha1sum | awk '{print $1}' > ${SLAP_DIR}/noise.txt
-
-    echo -e "\n>> Creating ${SERVER_CERT} database in ${SLAP_DIR}...\n"
-    /usr/bin/certutil -N -d ${SLAP_DIR} -f ${SLAP_DIR}/pwdfile.txt
-
-    echo -e "\n>> Creating ${SERVER_CERT} certificate request in ${SLAP_DIR}...\n"
-    /usr/bin/certutil -R --keyUsage digitalSignature,nonRepudiation,keyEncipherment,dataEncipherment --nsCertType sslClient,sslServer --extKeyUsage clientAuth,serverAuth -s CN=localhost,givenName=localhost,O=SUSE,L=CaaS,ST=Test,C=DE -8 localhost -g 4096 -d ${SLAP_DIR} -z ${SLAP_DIR}/noise.txt -f ${SLAP_DIR}/pwdfile.txt -a -o ${SLAP_DIR}/${SERVER_CERT}.csr
-
-    echo -e "\n>> Using ${SELF_SIGNED_CA} from ${SSCA_DIR} to create ${SERVER_CERT} certificate in ${SLAP_DIR}...\n"
-    /usr/bin/certutil -C -d ${SSCA_DIR}/ -f ${SSCA_DIR}/pwdfile.txt -v 24 -a -i ${SLAP_DIR}/${SERVER_CERT}.csr -o ${SLAP_DIR}/${SERVER_CERT}.crt -c ${SELF_SIGNED_CA}
-
-    echo -e "\n>> Creating ${SERVER_CERT} hash link in ${SLAP_DIR}...\n"
-    /usr/bin/c_rehash ${SLAP_DIR}
-
-
-    echo -e "\n>> Adding ${ROOT_CA} to ${SERVER_CERT} database in ${SLAP_DIR}...\n"
-    /usr/bin/certutil -A -n ${SELF_SIGNED_CA} -t CT,, -a -i ${SSCA_DIR}/${ROOT_CA}.crt -d ${SLAP_DIR} -f ${SLAP_DIR}/pwdfile.txt
-
-    echo -e "\n>> Adding certificate to ${SERVER_CERT} database in ${SLAP_DIR}...\n"
-    /usr/bin/certutil -A -n ${SERVER_CERT} -t ,, -a -i ${SLAP_DIR}/${SERVER_CERT}.crt -d ${SLAP_DIR} -f ${SLAP_DIR}/pwdfile.txt
-
-    echo -e "\n>> Validating certificate in ${SERVER_CERT} database in ${SLAP_DIR}...\n"
-    /usr/bin/certutil -V -d ${SLAP_DIR} -n ${SERVER_CERT} -u YCV
 
     /usr/bin/sha1sum ${SSCA_DIR}/${ROOT_CA}.crt ${SLAP_DIR}/${SERVER_CERT}.csr ${SLAP_DIR}/${SERVER_CERT}.crt > /tmp/certsum_new
     /bin/cp /tmp/certsum_new /data/.certsum
