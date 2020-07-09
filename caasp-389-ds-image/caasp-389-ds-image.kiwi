@@ -37,7 +37,7 @@
         <subcommand clear="true"/>
       </containerconfig>
     </type>
-    <version>1</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
