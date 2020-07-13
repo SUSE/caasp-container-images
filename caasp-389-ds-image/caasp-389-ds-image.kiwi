@@ -28,7 +28,7 @@
         </labels>
         <expose>
           <port number="3389"/>
-          <port number="636"/>
+          <port number="3636"/>
         </expose>
         <volumes>
           <volume name="/data"/>
@@ -37,7 +37,7 @@
         <subcommand clear="true"/>
       </containerconfig>
     </type>
-    <version>1</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
