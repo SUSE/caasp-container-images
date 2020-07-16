@@ -49,7 +49,7 @@
       <package name="tcpdump"/>
       <package name="net-tools"/>
       <package name="lsof"/>
-      <package name="linux-tools"/>
+      <!-- <package name="linux-tools"/> -->
       <package name="istio"/>
   </packages>
 </image>
