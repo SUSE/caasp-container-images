@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- OBS-AddTag: caasp/v5/ingress-nginx-controller:%%PKG_VERSION%%-rev<VERSION> caasp/v5/ingress-nginx-controller:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v5/ingress-nginx-controller:beta -->
+<image xmlns:suse_label_helper="com.suse.label_helper" schemaversion="6.9" name="ingress-nginx-controller">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>ingress-nginx controller</specification>
+  </description>
+  <preferences>
+    <type image="docker" derived_from="obsrepositories:/suse/sle15#15.2">
+      <containerconfig name="ingress-nginx-controller" tag="0.15.0" maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        <entrypoint execute="/usr/bin/ingress-nginx-controller"/>
+        <labels>
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
+            <label name="com.suse.caasp.v5.description" value="ingress-nginx running on an SLES15 SP2 container guest"/>
+            <label name="com.suse.caasp.v5.title" value="ingress-nginx container"/>
+            <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
+            <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
+            <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
+            <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
+            <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/ingress-nginx:%%PKG_VERSION%%"/>
+          </suse_label_helper:add_prefix>
+        </labels>
+      </containerconfig>
+    </type>
+    <version>1</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="ingress-nginx-controller"/>
+    <package name="nginx"/>
+    <package name="nginx-geolite-country"/>
+    <package name="nginx-geolite-city"/>
+    <package name="nginx-geolite-asn"/>
+    <package name="nginx-module-brotli"/>
+    <package name="nginx-module-cookie-flag"/>
+    <package name="nginx-module-devel-kit"/>
+    <package name="nginx-module-http-auth-digest"/>
+    <package name="nginx-module-http-substitutions-filter"/>
+    <package name="nginx-module-modsecurity"/>
+    <package name="nginx-module-set-misc"/>
+    <package name="nginx-module-sticky-ng"/>
+    <package name="nginx-module-vts"/>
+    <package name="nginx-module-headers-more"/>
+  </packages>
+</image>
