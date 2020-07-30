@@ -5,7 +5,7 @@
     requirements.
 -->
 
-<!-- OBS-AddTag: caasp/v5/pause:3.2-rev<VERSION> caasp/v5/pause:3.2-rev<VERSION>-build<RELEASE> caasp/v5/pause:beta -->
+<!-- OBS-AddTag: caasp/v4.5/pause:3.2-rev<VERSION> caasp/v4.5/pause:3.2-rev<VERSION>-build<RELEASE> caasp/v4.5/pause:beta -->
 
 <image schemaversion="6.9" name="caasp-pause-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
@@ -16,12 +16,12 @@
   <preferences>
     <type image="docker">
       <containerconfig
-        name="caasp/v5/pause"
+        name="caasp/v4.5/pause"
         tag="3.2"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/caasp-pause"/>
         <labels>
-          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4.5">
             <label name="org.opencontainers.image.description" value="caasp-pause running on a SLES15 SP2 container guest"/>
             <label name="org.opencontainers.image.title" value="CaaSP pause container"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
@@ -29,7 +29,7 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="3.2"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/pause:3.2"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/pause:3.2"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>

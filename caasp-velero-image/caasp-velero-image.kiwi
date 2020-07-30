@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v5/velero:%%PKG_VERSION%%-rev<VERSION> caasp/v5/velero:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v5/velero:beta -->
+<!-- OBS-AddTag: caasp/v4.5/velero:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/velero:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/velero:beta -->
 
 <image schemaversion="6.9" name="caasp-velero-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
@@ -13,14 +13,14 @@
       image="docker"
       derived_from="obsrepositories:/suse/sle15#15.2">
       <containerconfig
-        name="caasp/v5/velero"
+        name="caasp/v4.5/velero"
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;"
         user="nobody">
         <entrypoint execute="velero"/>
         <subcommand clear="true"/>
         <labels>
-          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4.5">
             <label name="org.opencontainers.image.description" value="velero running on a SLES15 SP2 container guest"/>
             <label name="org.opencontainers.image.title" value="CaaSP velero container"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
@@ -28,7 +28,7 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/velero:%%PKG_VERSION%%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/velero:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
