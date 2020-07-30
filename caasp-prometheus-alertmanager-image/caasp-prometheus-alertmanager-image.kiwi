@@ -17,7 +17,8 @@
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <expose>
-          <port number="9090/tcp"/>
+          <port number="9093/tcp"/>
+          <port number="9094/tcp"/>
         </expose>
         <entrypoint execute="/usr/bin/prometheus-alertmanager"/>
         <subcommand clear="true"/>
