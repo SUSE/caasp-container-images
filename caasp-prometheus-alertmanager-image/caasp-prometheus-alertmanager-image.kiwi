@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v5/prometheus-alertmanager:%%PKG_VERSION%%-rev<VERSION> caasp/v5/prometheus-alertmanager:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v5/prometheus-alertmanager:beta -->
+<!-- OBS-AddTag: caasp/v4.5/prometheus-alertmanager:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/prometheus-alertmanager:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/prometheus-alertmanager:beta -->
 
 <image schemaversion="6.9" name="caasp-prometheus-alertmanager-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
@@ -13,7 +13,7 @@
       image="docker"
       derived_from="obsrepositories:/suse/sle15#15.2">
       <containerconfig
-        name="caasp/v5/prometheus-alertmanager"
+        name="caasp/v4.5/prometheus-alertmanager"
         tag="%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <expose>
@@ -22,7 +22,7 @@
         <entrypoint execute="/usr/bin/prometheus-alertmanager"/>
         <subcommand clear="true"/>
         <labels>
-          <suse_label_helper:add_prefix prefix="com.suse.caasp.v5">
+          <suse_label_helper:add_prefix prefix="com.suse.caasp.v4.5">
             <label name="org.opencontainers.image.description" value="Prometheus alertmanager running on a SLES15 SP2 container guest"/>
             <label name="org.opencontainers.image.title" value="CaaSP Prometheus alertmanager container"/>
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
@@ -30,7 +30,7 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v5/prometheus-alertmanager:%%PKG_VERSION%%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/prometheus-alertmanager:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
