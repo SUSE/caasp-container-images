@@ -9,7 +9,7 @@
   <preferences>
     <type image="docker" derived_from="obsrepositories:/suse/sle15#15.2">
       <containerconfig name="ingress-nginx-controller" tag="0.15.0" maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
-        <entrypoint execute="/usr/bin/ingress-nginx-controller"/>
+        <entrypoint execute="/usr/bin/nginx-ingress-controller"/>
         <labels>
           <suse_label_helper:add_prefix prefix="com.suse.caasp.v4.5">
             <label name="com.suse.caasp.v4.5.description" value="ingress-nginx running on an SLES15 SP2 container guest"/>
