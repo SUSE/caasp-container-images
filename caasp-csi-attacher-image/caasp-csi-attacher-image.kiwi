@@ -40,6 +40,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="external-attacher"/>
+    <package name="csi-external-attacher"/>
   </packages>
 </image>

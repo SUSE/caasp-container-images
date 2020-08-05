@@ -2,7 +2,7 @@
 
 <!-- OBS-AddTag: caasp/v4.5/livenessprobe:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/livenessprobe:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/livenessprobe:beta -->
 
-<image schemaversion="6.9" name="caasp-livenessprobe-image" xmlns:suse_label_helper="com.suse.label_helper">
+<image schemaversion="6.9" name="caasp-csi-livenessprobe-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
@@ -40,6 +40,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="livenessprobe"/>
+    <package name="csi-livenessprobe"/>
   </packages>
 </image>

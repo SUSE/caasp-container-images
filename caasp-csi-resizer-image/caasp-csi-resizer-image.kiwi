@@ -40,6 +40,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="external-resizer"/>
+    <package name="csi-external-resizer"/>
   </packages>
 </image>

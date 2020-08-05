@@ -3,7 +3,7 @@
         <param name="file">caasp-csi-attacher-image.kiwi</param>
         <param name="regex">%%PKG_VERSION%%</param>
         <param name="parse-version">patch</param>
-        <param name="package">external-attacher</param>
+        <param name="package">csi-external-attacher</param>
     </service>
     <service mode="buildtime" name="kiwi_metainfo_helper"/>
     <service mode="buildtime" name="kiwi_label_helper"/>

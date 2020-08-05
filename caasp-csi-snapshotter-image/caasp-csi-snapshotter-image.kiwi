@@ -40,6 +40,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="external-snapshotter"/>
+    <package name="csi-external-snapshotter"/>
   </packages>
 </image>

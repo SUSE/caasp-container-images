@@ -40,6 +40,6 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="node-driver-registrar"/>
+    <package name="csi-node-driver-registrar"/>
   </packages>
 </image>
