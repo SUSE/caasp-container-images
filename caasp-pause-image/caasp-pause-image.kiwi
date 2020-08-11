@@ -5,7 +5,7 @@
     requirements.
 -->
 
-<!-- OBS-AddTag: caasp/v4.5/pause:3.2-rev<VERSION> caasp/v4.5/pause:3.2-rev<VERSION>-build<RELEASE> caasp/v4.5/pause:beta -->
+<!-- OBS-AddTag: caasp/v4.5/pause:3.2-rev<VERSION> caasp/v4.5/pause:3.2-rev<VERSION>-build<RELEASE>  -->
 
 <image schemaversion="6.9" name="caasp-pause-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">

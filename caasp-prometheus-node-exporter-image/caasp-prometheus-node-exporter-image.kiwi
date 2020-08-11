@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<!-- OBS-AddTag: caasp/v4.5/prometheus-node-exporter:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/prometheus-node-exporter:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/prometheus-node-exporter:beta -->
+<!-- OBS-AddTag: caasp/v4.5/prometheus-node-exporter:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/prometheus-node-exporter:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE>  -->
  
 
 <image schemaversion="6.9" name="caasp-prometheus-node-exporter-image" xmlns:suse_label_helper="com.suse.label_helper">
