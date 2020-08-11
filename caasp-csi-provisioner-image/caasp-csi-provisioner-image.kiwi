@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4.5/csi-provisioner:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/csi-provisioner:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/csi-provisioner:beta -->
+<!-- OBS-AddTag: caasp/v4.5/csi-provisioner:v%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/csi-provisioner:v%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/csi-provisioner:beta -->
 
 <image schemaversion="6.9" name="caasp-csi-provisioner-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
@@ -14,7 +14,7 @@
       derived_from="obsrepositories:/suse/sle15#15.2">
       <containerconfig
         name="caasp/v4.5/csi-provisioner"
-        tag="%%PKG_VERSION%%"
+        tag="v%%PKG_VERSION%%"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/csi-provisioner"/>
         <subcommand clear="true"/>
@@ -25,9 +25,9 @@
             <label name="org.opencontainers.image.created" value="%BUILDTIME%"/>
             <label name="org.opencontainers.image.vendor" value="SUSE LLC"/>
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
-            <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
+            <label name="org.opencontainers.image.version" value="v%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/csi-provisioner:%%PKG_VERSION%%"/>
+            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/csi-provisioner:v%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
