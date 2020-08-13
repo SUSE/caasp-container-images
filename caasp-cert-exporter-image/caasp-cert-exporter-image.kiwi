@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4.5/cert-exporter:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/cert-exporter:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE> caasp/v4.5/cert-exporter:beta -->
+<!-- OBS-AddTag: caasp/v4.5/cert-exporter:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/cert-exporter:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE>  -->
 
 <image schemaversion="6.9" name="caasp-cert-exporter-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">

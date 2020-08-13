@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- OBS-AddTag: caasp/v4.5/istio-proxyv2:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/istio-proxyv2:%%PKG_VERSION%%-rev<VERSION>-build caasp/v4.5/istio-proxyv2:beta -->
+<!-- OBS-AddTag: caasp/v4.5/istio-proxyv2:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/istio-proxyv2:%%PKG_VERSION%%-rev<VERSION>-build  -->
 
 <image schemaversion="6.9" name="caasp-istio-proxyv2-image" xmlns:suse_label_helper="com.suse.label_helper">
   <description type="system">
