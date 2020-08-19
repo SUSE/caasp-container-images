@@ -32,7 +32,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>2</version>
+    <version>3</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -40,6 +40,7 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
+    <package name="update-alternatives"/>
     <package name="kubernetes-1.18-client"/>
   </packages>
 </image>
