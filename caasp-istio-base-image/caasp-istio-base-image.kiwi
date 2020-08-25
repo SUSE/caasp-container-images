@@ -15,6 +15,7 @@
       <containerconfig
         name="caasp/v4.5/istio-base"
         tag="%%PKG_VERSION%%"
+        additionaltags="latest"
         maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <subcommand clear="true"/>
         <labels>

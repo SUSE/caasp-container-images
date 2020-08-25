@@ -11,7 +11,7 @@
   <preferences>
     <type
       image="docker"
-      derived_from="obsrepositories:/caasp/v4.5/istio-base#1.5.4">
+      derived_from="obsrepositories:/caasp/v4.5/istio-base#latest">
       <containerconfig
         name="caasp/v4.5/istio-proxyv2"
         tag="%%PKG_VERSION%%"
