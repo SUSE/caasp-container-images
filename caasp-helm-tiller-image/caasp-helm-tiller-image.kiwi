@@ -33,7 +33,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>3</version>
+    <version>4</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -41,7 +41,7 @@
     <source path="obsrepositories:/"/>
   </repository>
   <packages type="image">
-    <package name="helm"/>
+    <package name="helm2"/>
     <package name="system-user-nobody"/>
   </packages>
 </image>
