@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- OBS-AddTag: caasp/v4.5/ingress-nginx-controller:%%PKG_VERSION%%-rev<VERSION> caasp/v4.5/ingress-nginx-controller:%%PKG_VERSION%%-rev<VERSION>-build<RELEASE>  -->
-<image xmlns:suse_label_helper="com.suse.label_helper" schemaversion="6.9" name="ingress-nginx-controller">
+<image xmlns:suse_label_helper="com.suse.label_helper" schemaversion="6.9" name="caasp-ingress-nginx-controller-image">
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
@@ -24,7 +24,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>2</version>
+    <version>3</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
