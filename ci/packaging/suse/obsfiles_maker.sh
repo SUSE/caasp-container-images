@@ -20,6 +20,7 @@ mkdir -p "${obs_files}"
 install -p -m 644 "${image}/${image}.kiwi" "${obs_files}"
 [ -f "${image}/config.sh"  ] && install -m 755 -p "${image}/config.sh" "${obs_files}"
 [ -f "${image}/_service"  ] && install -m 644 -p "${image}/_service" "${obs_files}"
+[ -f "${image}/_constraints"  ] && install -m 644 -p "${image}/_constraints" "${obs_files}"
 
 [ -d "${image}/root"  ] && \
     tar --mtime=@1480000000 --owner=0 --group=0 --no-acls --no-xattrs \

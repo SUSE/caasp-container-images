@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<constraints>
+  <overwrite>
+    <conditions>
+      <arch>aarch64</arch>
+    </conditions>
+    <hardware>
+      <processors>4</processors>
+      <memory>
+        <size unit="M">16000</size>
+      </memory>
+    </hardware>
+  </overwrite>
+</constraints>
