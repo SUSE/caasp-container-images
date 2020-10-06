@@ -30,9 +30,9 @@
             <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/caasp-dex:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
-      </containerconfig> 
+      </containerconfig>
     </type>
-    <version>1</version>
+    <version>2</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -42,5 +42,5 @@
   <packages type="image">
     <package name="caasp-dex"/>
     <package name="caasp-dex-branding"/>
-  </packages> 
+  </packages>
 </image>

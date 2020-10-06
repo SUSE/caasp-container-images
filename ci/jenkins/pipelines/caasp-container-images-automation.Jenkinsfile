@@ -1,3 +1,3 @@
-@Library('caasp-jenkins-lib@master') _
- 
-containerImagesPR(env, 'containers-integration', 'master')
+@Library('caasp-jenkins-lib@PR-787') _
+
+containerImagesPR(env, 'containers-integration', 'PR-787')
