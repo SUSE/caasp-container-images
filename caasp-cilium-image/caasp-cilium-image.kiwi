@@ -27,12 +27,12 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/cilium:%%PKG_VERSION%%"/>
+            <label name="org.opensuse.reference" value="registry.suse.com/caasp/v4.5/cilium:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
       </containerconfig>
     </type>
-    <version>3</version>
+    <version>4</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>

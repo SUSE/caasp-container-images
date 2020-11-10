@@ -27,7 +27,7 @@
             <label name="org.opencontainers.image.url" value="https://www.suse.com/products/caas-platform/"/>
             <label name="org.opencontainers.image.version" value="%%PKG_VERSION%%"/>
             <label name="org.openbuildservice.disturl" value="%DISTURL%"/>
-            <label name="com.suse.reference" value="registry.suse.com/caasp/v4.5/istio-proxyv2:%%PKG_VERSION%%"/>
+            <label name="org.opensuse.reference" value="registry.suse.com/caasp/v4.5/istio-proxyv2:%%PKG_VERSION%%"/>
           </suse_label_helper:add_prefix>
         </labels>
         <environment>
@@ -37,7 +37,7 @@
         </environment>	
       </containerconfig>
     </type>
-    <version>5</version>
+    <version>6</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
