@@ -43,7 +43,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>2</version>
+    <version>3</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
@@ -53,5 +53,6 @@
   <packages type="image">
     <package name="etcd"/>
     <package name="etcdctl"/>
+    <package name="vim"/>
   </packages>
 </image>
