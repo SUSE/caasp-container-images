@@ -15,7 +15,7 @@
       <containerconfig
         name="caasp/v4.5/cilium-operator"
         tag="%%PKG_VERSION%%"
-	    maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
+        maintainer="SUSE Containers Team &lt;containers@suse.com&gt;">
         <entrypoint execute="/usr/bin/cilium-operator"/>
         <subcommand clear="true"/>
         <history author="Nirmoy Das &lt;ndas@suse.de&gt;">cilium-operator Container</history>
@@ -33,7 +33,7 @@
         </labels>
       </containerconfig>
     </type>
-    <version>4</version>
+    <version>5</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
