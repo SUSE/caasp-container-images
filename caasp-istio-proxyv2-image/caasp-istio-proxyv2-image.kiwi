@@ -37,7 +37,7 @@
         </environment>	
       </containerconfig>
     </type>
-    <version>6</version>
+    <version>7</version>
     <packagemanager>zypper</packagemanager>
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
